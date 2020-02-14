@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { Input,Icon,Button } from 'antd';
+import {Link} from 'react-router-dom'
 import axios from '../../../src/config/axios'
+import './SignUp.scss'
 
 interface ISignUpState { // 如果不声明会报Property 'account' does not exist on type 'Readonly<{}>'.的错误
   account: string,
@@ -44,10 +46,15 @@ class SignUp extends React.Component<any,ISignUpState> { // 第一个参数声�
     }
   }
 
+  linkTo = () => {
+    this.props.history.push('login')
+  }
+
   public render() {
     const { account,password,passwordConformation } = this.state;
     return (
-      <div className="SignUp">
+      <div id="SignUp">
+        <h1>番茄闹钟注册</h1>
         <Input
           placeholder="请输入你的用户名"
           prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
@@ -56,7 +63,9 @@ class SignUp extends React.Component<any,ISignUpState> { // 第一个参数声�
         />
         <Input.Password value={password} placeholder="请输入密码" onChange={this.onChangePassword}/>
         <Input.Password value={passwordConformation} placeholder="请确认密码" onChange={this.onChangePasswordConformation}/>
-        <Button onClick={this.submit}>注册</Button>
+        <Button type="primary" className="loginButton" onClick={this.submit}>注册</Button>
+        <p>如果你有账号，请立即登录<Link to="/login">登录</Link>
+        </p>
       </div>
     )
   }
