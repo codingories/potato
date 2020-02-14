@@ -29,6 +29,7 @@ instance.interceptors.response.use(function (response) {
   }
   return response
 }, function (error) {
+  window.location.href='/login' // 页面会再次跳转
   return Promise.reject(error)
 })
 
