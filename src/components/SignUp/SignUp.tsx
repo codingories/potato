@@ -40,14 +40,10 @@ class SignUp extends React.Component<any,ISignUpState> { // 第一个参数声�
         password_confirmation:passwordConformation,
         password
       })
-      console.log('成功')
+      this.props.history.push('/')
     }catch (e) {
       throw new Error(e)
     }
-  }
-
-  linkTo = () => {
-    this.props.history.push('login')
   }
 
   public render() {
@@ -63,7 +59,7 @@ class SignUp extends React.Component<any,ISignUpState> { // 第一个参数声�
         />
         <Input.Password value={password} placeholder="请输入密码" onChange={this.onChangePassword}/>
         <Input.Password value={passwordConformation} placeholder="请确认密码" onChange={this.onChangePasswordConformation}/>
-        <Button type="primary" className="loginButton" onClick={this.submit}>注册</Button>
+        <Button type="primary" className="signUpButton" onClick={this.submit}>注册</Button>
         <p>如果你有账号，请立即登录<Link to="/login">登录</Link>
         </p>
       </div>
