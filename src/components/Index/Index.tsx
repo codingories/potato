@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Dropdown, Icon ,Menu} from 'antd'
-import Todos from '../Todos/Todos'
+import Todos from 'components/Todos/Todos'
 import axios from '../../config/axios'
 import history from '../../../src/config/history'
 import './Index.scss'
