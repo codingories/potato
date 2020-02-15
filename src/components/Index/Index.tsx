@@ -25,15 +25,8 @@ class Index extends React.Component<Irouter,IIndexState> {
   }
 
   getMe = async () => {
-    try{
-      const response = await axios.get('me')
-      this.setState({user: response.data})
-    }catch (e) {
-      // console.error('获取用户失败')
-      // if(e.response.status === 401){
-      //   this.props.history.push('/login')
-      // }
-    }
+    const response = await axios.get('me')
+    this.setState({user: response.data})
   }
 
 

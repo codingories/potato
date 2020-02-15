@@ -1,4 +1,5 @@
 import axios from 'axios'
+import history from './history'
 
 const appID = 'PzutokfofqknrEzTaJUBkmJA'
 const appSecret = 'GUxobVHJT88pGFeDLtBpyT3D'
@@ -29,7 +30,9 @@ instance.interceptors.response.use(function (response) {
   }
   return response
 }, function (error) {
-  window.location.href='/login' // 页面会再次跳转
+  if(error.response.status === 401){
+    history.push('/login')
+  }
   return Promise.reject(error)
 })
 
